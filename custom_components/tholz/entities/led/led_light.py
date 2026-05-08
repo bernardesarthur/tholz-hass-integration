@@ -117,13 +117,13 @@ class LedLight(LightEntity):
     def supported_color_modes(self):
         if can_pick_led_color(self._state):
             return {get_color_mode(self._state)}
-        return set()
+        return {ColorMode.ONOFF}
 
     @property
     def color_mode(self):
         if can_pick_led_color(self._state):
             return get_color_mode(self._state)
-        return None
+        return ColorMode.ONOFF
 
     @property
     def effect(self):
